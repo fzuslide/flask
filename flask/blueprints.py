@@ -92,7 +92,8 @@ class Blueprint(_PackageBoundObject):
     def __init__(self, name, import_name, static_folder=None,
                  static_url_path=None, template_folder=None,
                  url_prefix=None, subdomain=None, url_defaults=None):
-        _PackageBoundObject.__init__(self, import_name, template_folder)
+        _PackageBoundObject.__init__(self, import_name, template_folder,
+                                     static_folder, static_url_path)
         self.name = name
         self.url_prefix = url_prefix
         self.subdomain = subdomain

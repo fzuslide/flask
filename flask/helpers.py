@@ -710,7 +710,7 @@ class locked_cached_property(object):
 
 class _PackageBoundObject(object):
 
-    def __init__(self, import_name, template_folder=None):
+    def __init__(self, import_name, template_folder=None, static_folder=None, static_url_path=None):
         #: The name of the package or module.  Do not change this once
         #: it was set by the constructor.
         self.import_name = import_name
@@ -722,8 +722,8 @@ class _PackageBoundObject(object):
         #: Where is the app root located?
         self.root_path = get_root_path(self.import_name)
 
-        self._static_folder = None
-        self._static_url_path = None
+        self._static_folder = static_folder
+        self._static_url_path = static_url_path
 
     def _get_static_folder(self):
         if self._static_folder is not None:
